@@ -1,0 +1,54 @@
+[user]
+	name = Georgi Krustev
+	email = ggkrustev@yahoo.com
+
+[merge]
+	tool = vimdiff
+
+[credential]
+	helper = osxkeychain
+
+[push]
+  default = tracking
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+
+[core]
+  excludesfile = ~/.gitignore
+  autocrlf = false
+  whitespace = cr-at-eol
+	editor = vim
+
+[branch]
+  autosetuprebase = always
+
+[format]
+  pretty = %Cblue%h%Creset %Cgreen[%cr]%Creset (%an) %s
+
+[alias]
+  c = commit -m
+  co = checkout
+  a = add
+  d = diff
+  ps = push
+  s = status
+  cp = "!git checkout production && git pull --rebase && git cherry-pick master && git push && git checkout master"
+  sync = "!git pl && git push"
+  # Alternate log display from Scott Chacon
+  lol = log --pretty=oneline --abbrev-commit --graph --decorate
+  l = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %Cblue%an%Creset' --abbrev-commit --date=relative
+  sub = submodule update --init
+
+  # Other useful aliases:
+  current-branch = !git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||'
+
+  # Usage: git track origin/feature-123-login-form
+  track = checkout -t
+
+  #############################
+  # public/private mirrors aliases
+  #############################
+  pl = "!git fetch --prune && git rebase --preserve-merges `git rev-parse --abbrev-ref --symbolic-full-name @{u}`"

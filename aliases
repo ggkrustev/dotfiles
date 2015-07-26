@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+alias g="git"
+alias ll="ls -alF"
+
+case `uname -a` in
+  *Linux*)
+    alias ls='ls --color=auto';;
+  *Darwin*)
+    # what?
+    ;;
+esac
+alias avd="/usr/local/android/tools/android avd"
+alias vim="mvim -v"

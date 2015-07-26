@@ -1,0 +1,7 @@
+.*.swp
+tags
+.swo
+.DS_Store
+xsp
+playground
+Gemfile.lock
