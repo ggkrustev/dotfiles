@@ -1,12 +1,12 @@
 [user]
-	name = Georgi Krustev
-	email = ggkrustev@yahoo.com
+  name = Georgi Krustev
+  email = ggkrustev@yahoo.com
 
 [merge]
-	tool = vimdiff
+  tool = vimdiff
 
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 
 [push]
   default = tracking
@@ -20,13 +20,19 @@
   excludesfile = ~/.gitignore
   autocrlf = false
   whitespace = cr-at-eol
-	editor = vim
+  editor = vim
 
 [branch]
   autosetuprebase = always
 
 [format]
   pretty = %Cblue%h%Creset %Cgreen[%cr]%Creset (%an) %s
+
+[init]
+  templatedir = ~/.git_template
+
+[diff]
+  algorithm = patience
 
 [alias]
   c = commit -m
@@ -35,20 +41,41 @@
   d = diff
   ps = push
   s = status
+  out = log origin..HEAD
+  qpl = log --pretty=\"%Cblue%h%Creset %Cgreen[%cr]%Creset %s\" origin/production..origin/master
+  l = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %Cblue%an%Creset' --abbrev-commit --date=relative
+  ci = commit
+  ca = commit --amend
+  eu = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+  au = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
   cp = "!git checkout production && git pull --rebase && git cherry-pick master && git push && git checkout master"
+  cpp = "!f() { git checkout production && git pull --rebase && git cherry-pick $1 && git push && git checkout master ; }; f"
   sync = "!git pl && git push"
   # Alternate log display from Scott Chacon
   lol = log --pretty=oneline --abbrev-commit --graph --decorate
-  l = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %Cblue%an%Creset' --abbrev-commit --date=relative
   sub = submodule update --init
 
   # Other useful aliases:
+  unstage = reset HEAD
+  staged = diff --cached
+  unstaged = diff
   current-branch = !git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||'
-
   # Usage: git track origin/feature-123-login-form
   track = checkout -t
 
   #############################
   # public/private mirrors aliases
-  #############################
+  ##############################
   pl = "!git fetch --prune && git rebase --preserve-merges `git rev-parse --abbrev-ref --symbolic-full-name @{u}`"
+
+  # Bring alias from public repo to private
+  put-in-master = "!git checkout master && git pl && git cherry-pick core/master && git push && git checkout core-master"
+
+  # use this when cherry picking from private to public
+  drop-deleted-by-us = "!git rm `git status --porcelain | grep ^DU | cut -d' ' -f2`"
+
+  # skip a cherry-pick when in progress
+  skip-cherry = "!git reset; git clean -df; git cherry-pick --continue"
+
+  # cherry-pick in core production
+  cp-core = "!git checkout core-production && git pl && git cherry-pick core-master && git sync && git checkout core-master"
