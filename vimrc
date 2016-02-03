@@ -69,8 +69,6 @@ filetype plugin indent on    " required
 
 """"""""""""""""""""""""""""""""""""""
 
-filetype plugin indent on    " required
-
 nnoremap <F8> :setlocal spell! spell? <CR>
 
 colorscheme slate
@@ -99,4 +97,21 @@ autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufReadPost *cshtml              set filetype=html
 autocmd BufRead,BufEnter .babelrc        set filetype=javascript
 
+" indent helpers
+nnoremap <Tab> >>
+nnoremap <S-Tab> <<
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
 
+" Searching
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" command line options
+set t_Co=256
+set mouse=a
+set ttymouse=xterm2
+inoremap <C-s> <C-o>:wa<CR>
+nnoremap <C-s> :wa<CR>
