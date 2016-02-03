@@ -64,12 +64,13 @@ HISTFILE=~/.history
 setopt APPEND_HISTORY
 
 # homebrew
+export NODE_PATH=/usr/local/lib/node_modules:/usr/lib/node_modules:$NODE_PATH
+
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=$PATH:/usr/local/share/npm/bin
 export PATH=$PATH:/usr/local/android/platform-tools:/usr/local/android/tools
 export PATH="/usr/local/heroku/bin:$PATH"
-
-export NODE_PATH=/usr/local/lib/node_modules:/usr/lib/node_modules:$NODE_PATH
+export PATH="$NODE_PATH:$PATH"
 
 ###-begin-npm-completion-###
 #
