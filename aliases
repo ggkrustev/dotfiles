@@ -10,7 +10,6 @@ case `uname -a` in
     # what?
     ;;
 esac
-alias avd="/usr/local/android/tools/android avd"
-alias vim="mvim -v"
 
+alias avd="/usr/local/android/tools/android avd"
 alias test-inputs="xvfb-run gulp karma-unit --tests='tests/{autocomplete,combobox,dropdownlist,multiselect,staticlist,virtuallist}/*.js'"
