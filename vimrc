@@ -1,27 +1,80 @@
 set nocompatible
 set encoding=utf8
+set spell
+
 filetype off
+
+"""""""""""""""""""""""""""""""
+" Plugins
+"""""""""""""""""""""""""""""""
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Bundle 'tpope/vim-fugitive'
-Bundle 'int3/vim-extradite'
+" markdown
+Plugin 'tpope/vim-markdown'
 
 " colorscheme
-Bundle 'flazz/vim-colorschemes'
+Plugin 'flazz/vim-colorschemes'
+
+" JavaScript
+Plugin 'jason0x43/vim-js-indent'
+Plugin 'othree/yajs.vim'
+Plugin 'mxw/vim-jsx'
+
+" Git, Fugitive, Extradite, Gutter
+Plugin 'tpope/vim-fugitive'
+Plugin 'int3/vim-extradite'
+Plugin 'airblade/vim-gitgutter'
+
+""""""""""""""""""""""""""""""""""""""
+" Syntastic!!
+" npm i -g jshint eslint babel-eslint eslint-plugin-react eslint_d
+Plugin 'scrooloose/syntastic'
+Plugin 'ruanyl/vim-fixmyjs'
+
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
+
+let g:syntastic_json_checkers = ["jshint"]
+
+let g:syntastic_javascript_checkers = ["eslint"]
+let g:syntastic_javascript_eslint_exec = 'eslint_d'
+
+nnoremap <Leader>f :Fixmyjs<CR>
+
+let g:syntastic_typescript_checkers = ["eslint"]
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+
+autocmd BufRead,BufEnter,BufNew *.jsx    let b:syntastic_checkers = ["eslint"]
+autocmd BufRead,BufEnter .babelrc        let b:syntastic_checkers = ["jshint"]
+autocmd BufRead,BufEnter *.json          let b:syntastic_checkers = ["jshint"]
+
+""""""""""""""""""""""""""""""""""""""
+" NERDTree
+
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+noremap <Leader>n :NERDTreeToggle<CR>
+let NERDTreeWinPos='right'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+""""""""""""""""""""""""""""""""""""""
+
+filetype plugin indent on    " required
+
 nnoremap <F8> :setlocal spell! spell? <CR>
 
-:colorscheme slate
-:syntax on
+colorscheme slate
+syntax on
 
 " Directories for swp/undo files
 set undofile
@@ -32,10 +85,18 @@ set backupdir=~/.vim/backup
 set directory=~/.vim/swp
 
 " 4 spaces indent, as JS wants it
-set nowrap
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab smartindent
+set nowrap tabstop=4 shiftwidth=4 softtabstop=4 expandtab smartindent
 
 set number
+
+" Remember last location in file
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
+
+" Auto-clean whitespace
+autocmd BufWritePre * :%s/\s\+$//e
+
+" File types
+autocmd BufReadPost *cshtml              set filetype=html
+autocmd BufRead,BufEnter .babelrc        set filetype=javascript
+
+

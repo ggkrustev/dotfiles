@@ -33,3 +33,13 @@ for name in *; do
     fi
   fi
 done
+
+if [ ! -d "$HOME/.vim/bundle" ]; then
+    echo "Installing vundle"
+    mkdir -p ~/.vim/bundle/
+    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    mkdir -p ~/.vim/backup
+    mkdir -p ~/.vim/undo
+    mkdir -p ~/.vim/swp
+    vim +BundleInstall +qall
+fi
