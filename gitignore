@@ -1,4 +1,5 @@
 .*.swp
+*.scratch.*
 tags
 .swo
 .DS_Store
