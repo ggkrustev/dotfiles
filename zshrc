@@ -12,6 +12,16 @@ git_prompt_info() {
   fi
 }
 
+#git credential helper
+case `uname -a` in
+  *Linux*)
+      git config --global credential.helper "cache --timeout=3600";;
+  *Darwin*)
+      git config --global credential.helper osxkeychain
+    # what?
+    ;;
+esac
+
 
 # enable colored output from ls, etc
 export CLICOLOR=1
@@ -36,8 +46,16 @@ compinit
 setopt auto_cd
 
 # use vim as an editor
-export EDITOR='mvim -v'
-export SUDO_EDITOR='mvim -v'
+case `uname -a` in
+  *Linux*)
+    export EDITOR='vim -v'
+    export SUDO_EDITOR='vim -v'
+    ;;
+  *Darwin*)
+    export EDITOR='mvim -v'
+    export SUDO_EDITOR='mvim -v'
+    ;;
+esac
 
 # aliases
 if [ -e "$HOME/.aliases" ]; then
