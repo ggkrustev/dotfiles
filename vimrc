@@ -21,6 +21,7 @@ Plugin 'tpope/vim-markdown'
 Plugin 'flazz/vim-colorschemes'
 
 " JavaScript
+Plugin 'pangloss/vim-javascript'
 Plugin 'jason0x43/vim-js-indent'
 Plugin 'othree/yajs.vim'
 Plugin 'mxw/vim-jsx'
