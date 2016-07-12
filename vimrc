@@ -65,6 +65,9 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 noremap <Leader>n :NERDTreeToggle<CR>
 let NERDTreeWinPos='right'
 
+" Ack.Vim serach
+Plugin 'mileszs/ack.vim'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -74,6 +77,8 @@ nnoremap <F8> :setlocal spell! spell? <CR>
 
 colorscheme slate
 syntax on
+
+set statusline=%{fugitive#statusline()}
 
 " Directories for swp/undo files
 set undofile
