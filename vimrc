@@ -68,6 +68,13 @@ let NERDTreeWinPos='right'
 " Ack.Vim serach
 Plugin 'mileszs/ack.vim'
 
+" use ag if available
+if executable('ag')
+   let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
+   set grepprg=ag\ --nogroup\ --nocolor
+endif
+
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
