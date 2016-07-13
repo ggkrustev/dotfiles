@@ -74,6 +74,8 @@ if executable('ag')
    set grepprg=ag\ --nogroup\ --nocolor
 endif
 
+"ctrlp
+Plugin 'kien/ctrlp.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
