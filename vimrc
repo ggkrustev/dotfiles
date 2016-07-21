@@ -26,8 +26,17 @@ Plugin 'jason0x43/vim-js-indent'
 Plugin 'othree/yajs.vim'
 Plugin 'mxw/vim-jsx'
 
-" Git, Fugitive, Extradite, Gutter
+" Git, Fugitive
 Plugin 'tpope/vim-fugitive'
+
+" Fugitive git bindings
+nnoremap <space>gs :Gstatus<CR>
+nnoremap <space>gc :Gcommit<CR>
+nnoremap <space>gd :Gdiff<CR>
+nnoremap <space>gr :Gread<CR>
+nnoremap <space>gm :Gmove<Space>
+
+" Extradite, Gutter
 Plugin 'int3/vim-extradite'
 Plugin 'airblade/vim-gitgutter'
 
