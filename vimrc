@@ -121,6 +121,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 " File types
 autocmd BufReadPost *cshtml              set filetype=html
 autocmd BufRead,BufEnter .babelrc        set filetype=javascript
+autocmd BufRead,BufNewFile *.md          set filetype=markdown
 
 " indent helpers
 nnoremap <Tab> >>
