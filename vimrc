@@ -31,6 +31,13 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'int3/vim-extradite'
 Plugin 'airblade/vim-gitgutter'
 
+" TypeScript
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Quramy/tsuquyomi'
+
+autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
+
 """"""""""""""""""""""""""""""""""""""
 " Syntastic!!
 " npm i -g jshint eslint babel-eslint eslint-plugin-react eslint_d
@@ -47,11 +54,11 @@ let g:syntastic_javascript_eslint_exec = 'eslint_d'
 
 nnoremap <Leader>f :Fixmyjs<CR>
 
-let g:syntastic_typescript_checkers = ["eslint"]
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
+
+let g:syntastic_typescript_checkers = []
 
 autocmd BufRead,BufEnter,BufNew *.jsx    let b:syntastic_checkers = ["eslint"]
 autocmd BufRead,BufEnter .babelrc        let b:syntastic_checkers = ["jshint"]
