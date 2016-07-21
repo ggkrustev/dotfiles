@@ -60,9 +60,10 @@ let g:syntastic_check_on_open = 1
 
 let g:syntastic_typescript_checkers = []
 
-autocmd BufRead,BufEnter,BufNew *.jsx    let b:syntastic_checkers = ["eslint"]
-autocmd BufRead,BufEnter .babelrc        let b:syntastic_checkers = ["jshint"]
-autocmd BufRead,BufEnter *.json          let b:syntastic_checkers = ["jshint"]
+autocmd BufRead,BufEnter,BufNew *.jsx             let b:syntastic_checkers = ["eslint"]
+autocmd BufRead,BufEnter .babelrc                 let b:syntastic_checkers = ["jshint"]
+autocmd BufRead,BufEnter *.json                   let b:syntastic_checkers = ["jshint"]
+autocmd BufRead,BufEnter,BufNew */kendo-*/*.js    let b:syntastic_checkers = ["eslint"]
 
 """"""""""""""""""""""""""""""""""""""
 " NERDTree
