@@ -49,7 +49,7 @@ autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()
 
 """"""""""""""""""""""""""""""""""""""
 " Syntastic!!
-" npm i -g jshint eslint babel-eslint eslint-plugin-react eslint_d
+" npm i -g jshint eslint babel-eslint eslint-plugin-react eslint_d tslint
 Plugin 'scrooloose/syntastic'
 Plugin 'ruanyl/vim-fixmyjs'
 
@@ -67,9 +67,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 
-let g:syntastic_typescript_checkers = []
+let g:syntastic_typescript_checkers = ["eslint"]
+let g:syntastic_typescript_tsc_fname = ''
 
 autocmd BufRead,BufEnter,BufNew *.jsx             let b:syntastic_checkers = ["eslint"]
+autocmd BufRead,BufEnter,BufNew *.ts              let b:syntastic_checkers = ["tslint"]
 autocmd BufRead,BufEnter .babelrc                 let b:syntastic_checkers = ["jshint"]
 autocmd BufRead,BufEnter *.json                   let b:syntastic_checkers = ["jshint"]
 autocmd BufRead,BufEnter,BufNew */kendo-*/*.js    let b:syntastic_checkers = ["eslint"]
