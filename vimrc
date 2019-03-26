@@ -113,7 +113,7 @@ filetype plugin indent on    " required
 
 nnoremap <F8> :setlocal spell! spell? <CR>
 
-colorscheme slate
+colorscheme molokai
 syntax on
 
 set statusline=%{fugitive#statusline()}
