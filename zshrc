@@ -85,11 +85,22 @@ setopt APPEND_HISTORY
 # homebrew
 export NODE_PATH=~/.npm-global/bin:/usr/local/lib/node_modules:/usr/lib/node_modules:$NODE_PATH
 
+# NVM
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+export MYSQL_PATH=/usr/local/Cellar/mysql/5.7.17
+export PATH=$PATH:$MYSQL_PATH/bin
+
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=$PATH:/usr/local/share/npm/bin
 export PATH=$PATH:/usr/local/android/platform-tools:/usr/local/android/tools
 export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="$NODE_PATH:$PATH"
+export PATH="$NODE_PATH:$PATH:$MYSQL_PATH/bin:$HOME/.installs"
+
+if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
+  source ~/.config/exercism/exercism_completion.zsh
+fi
 
 ###-begin-npm-completion-###
 #
