@@ -1,9 +1,11 @@
 #!/bin/bash
 
-source "$PWD/vscode_extensions.sh"
-
 settings="settings.json"
+vscode_path="$PWD/vscode"
 target="$HOME/Library/Application Support/Code/User/$settings"
+
+source "$vscode_path/vscode_extensions.sh"
+
 
 if [[ -e $target ]]; then
   if [[ ! -L $target ]]; then
@@ -12,7 +14,7 @@ if [[ -e $target ]]; then
   fi
 
   echo "[VSCode]: symlink user's settings"
-  ln -sf "$PWD/$settings" "$target"
+  ln -sf "$vscode_path/$settings" "$target"
 fi
 
 if [ -x $(which code) ]; then
