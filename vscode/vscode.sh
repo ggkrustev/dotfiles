@@ -22,6 +22,6 @@ if [ -x $(which code) ]; then
   for (( i=0; i<${#extensions[*]}; i++ ))
   do
     echo "[VSCode]: install ${extensions[$i]}"
-    code --install-extension --force "${extensions[$i]}"
+    code --install-extension ${extensions[$i]}
   done
 fi
