@@ -13,7 +13,8 @@ if [[ -e $target ]]; then
     rm -f "$target"
   fi
 
-  echo "[VSCode]: symlink user's settings"
+  echo "[VSCode]: symlink user's $vscode_path/$settings $target"
+
   ln -sf "$vscode_path/$settings" "$target"
 fi
 
@@ -21,6 +22,6 @@ if [ -x $(which code) ]; then
   for (( i=0; i<${#extensions[*]}; i++ ))
   do
     echo "[VSCode]: install ${extensions[$i]}"
-    code --install-extensions --force ${extensions[$i]}
+    code --install-extension --force "${extensions[$i]}"
   done
 fi
