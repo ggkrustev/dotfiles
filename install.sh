@@ -43,3 +43,5 @@ if [ ! -d "$HOME/.vim/bundle" ]; then
     mkdir -p ~/.vim/swp
     vim +BundleInstall +qall
 fi
+
+sh "$PWD/vscode/vscode.sh"
