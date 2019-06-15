@@ -1,5 +1,5 @@
 export SHELL=/bin/zsh
-export LANG=en_US
+export LANG="en_US.UTF-8"
 
 autoload -U colors && colors
 autoload -U zmv
