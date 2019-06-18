@@ -2232,4 +2232,5 @@
 
 	// Controls whether auto detection of Jake tasks is on or off. Default is on.
 	"jake.autoDetect": "on",
+	"team.showWelcomeMessage": false,
 }
