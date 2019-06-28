@@ -66,7 +66,7 @@
   #############################
   # public/private mirrors aliases
   ##############################
-  pl = "!git fetch --prune && git rebase --preserve-merges `git rev-parse --abbrev-ref --symbolic-full-name @{u}`"
+  pl = "!git fetch --prune && git rebase --rebase-merges `git rev-parse --abbrev-ref --symbolic-full-name @{u}`"
 
   # Bring alias from public repo to private
   put-in-master = "!git checkout master && git pl && git cherry-pick core/master && git push && git checkout core-master"
