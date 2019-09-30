@@ -132,10 +132,10 @@
 	"editor.foldingStrategy": "auto",
 
 	// Controls the font family.
-	"editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+	"editor.fontFamily": "FiraCode-Retina, Menlo, Monaco, 'Courier New', monospace",
 
 	// Enables/Disables font ligatures.
-	"editor.fontLigatures": false,
+	"editor.fontLigatures": true,
 
 	// Controls the font size in pixels.
 	"editor.fontSize": 12,
@@ -519,7 +519,7 @@
 	//  - alt: Maps to `Alt` on Windows and Linux and to `Option` on macOS.
 	"workbench.list.multiSelectModifier": "ctrlCmd",
 
-	// Controls how to open items in trees and lists using the mouse (if supported). For parents with children in trees, this setting will control if a single click expands the parent or a double click. Note that some trees and lists might choose to ignore this setting if it is not applicable. 
+	// Controls how to open items in trees and lists using the mouse (if supported). For parents with children in trees, this setting will control if a single click expands the parent or a double click. Note that some trees and lists might choose to ignore this setting if it is not applicable.
 	"workbench.list.openMode": "singleClick",
 
 	// Controls the default location of the panel (terminal, debug console, output, problems). It can either show at the bottom or on the right of the workbench.
@@ -608,7 +608,7 @@
 	//  - fullscreen: Open new windows in full screen mode.
 	"window.newWindowDimensions": "default",
 
-	// Controls whether files should open in a new window. 
+	// Controls whether files should open in a new window.
 	// Note that there can still be cases where this setting is ignored (e.g. when using the `--new-window` or `--reuse-window` command line option).
 	//  - on: Files will open in a new window.
 	//  - off: Files will open in the window with the files' folder open or the last active window.
@@ -1553,7 +1553,7 @@
 
 	// A set of command IDs whose keybindings will not be sent to the shell and instead always be handled by Code. This allows the use of keybindings that would normally be consumed by the shell to act the same as when the terminal is not focused, for example ctrl+p to launch Quick Open.
 	// Default Skipped Commands:
-	// 
+	//
 	// - editor.action.toggleTabFocusMode
 	// - workbench.action.debug.continue
 	// - workbench.action.debug.pause
@@ -1790,7 +1790,7 @@
 	//  - type: Show symbol outline in symbol type order.
 	"breadcrumbs.symbolSortOrder": "position",
 
-	// Enable crash reports to be sent to a Microsoft online service. 
+	// Enable crash reports to be sent to a Microsoft online service.
 	// This option requires restart to take effect.
 	"telemetry.enableCrashReporter": true,
 
