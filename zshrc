@@ -91,6 +91,23 @@ export PATH=$PATH:/usr/local/android/platform-tools:/usr/local/android/tools
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="$NODE_PATH:$PATH"
 
+# Android Development
+export ANDROID_HOME=/Users/$USER/Library/Android/sdk
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# GO language
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/work
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
 ###-begin-npm-completion-###
 #
 # npm command completion script
