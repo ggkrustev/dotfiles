@@ -657,7 +657,7 @@
 	"window.titleBarStyle": "custom",
 
 	// Adjust the zoom level of the window. The original size is 0 and each increment above (e.g. 1) or below (e.g. -1) represents zooming 20% larger or smaller. You can also enter decimals to adjust the zoom level with a finer granularity.
-	"window.zoomLevel": 0,
+	"window.zoomLevel": 1,
 
 	// Configure file associations to languages (e.g. `"*.extension": "html"`). These have precedence over the default associations of the languages installed.
 	"files.associations": {},
@@ -846,9 +846,6 @@
 
 	// Controls whether the search view should read or modify the shared find clipboard on macOS.
 	"search.globalFindClipboard": false,
-
-	// Controls whether the search will be shown as a view in the sidebar or as a panel in the panel area for more horizontal space.
-	"search.location": "sidebar",
 
 	// When enabled, the searchService process will be kept alive instead of being shut down after an hour of inactivity. This will keep the file search cache in memory.
 	"search.maintainFileSearchCache": false,
@@ -1899,7 +1896,8 @@
 	"[json]":  {
 		"editor.quickSuggestions": {
 				"strings": true
-		}
+		},
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 
 	// Configure editor settings to be overridden for [makefile] language.
@@ -1963,10 +1961,10 @@
 	"omnisharp.enableMsBuildLoadProjectsOnDemand": false,
 
 	// Enables support for roslyn analyzers, code fixes and rulesets.
-	"omnisharp.enableRoslynAnalyzers": false,
+	"omnisharp.enableRoslynAnalyzers": true,
 
 	// Specifies the level of logging output from the OmniSharp server.
-	"omnisharp.loggingLevel": "information",
+	"omnisharp.loggingLevel": "trace",
 
 	// The maximum number of items that 'Go to Symbol in Workspace' operation can show. The limit is applied only when a positive number is specified here.
 	"omnisharp.maxFindSymbolsItems": 1000,
@@ -2233,4 +2231,7 @@
 	// Controls whether auto detection of Jake tasks is on or off. Default is on.
 	"jake.autoDetect": "on",
 	"team.showWelcomeMessage": false,
+	"[typescript]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features"
+	},
 }

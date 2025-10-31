@@ -7,6 +7,8 @@
 
 [credential]
 	helper = osxkeychain
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
 
 [push]
   default = tracking
@@ -79,3 +81,5 @@
 
   # cherry-pick in core production
   cp-core = "!git checkout core-production && git pl && git cherry-pick core-master && git sync && git checkout core-master"
+[credential "https://dev.azure.com"]
+	useHttpPath = true
